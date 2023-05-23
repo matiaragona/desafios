@@ -2,13 +2,13 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const path = require('path');
 const fs = require('fs');
 const exphbs = require('express-handlebars');
 const ProductManager = require('./ProductManager');
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
